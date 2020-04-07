@@ -31,6 +31,6 @@ class BusStopTest < MiniTest::Test
 
     def test_clear_queue()
         @bus_stop.clear
-        assert_equal
+        assert_equal(0, @bus_stop.queue_number)
     end
 end
