@@ -1,0 +1,21 @@
+Bus
+////
+route_num : Int, 
+destination : String
++++
+get() -> route_num, destination
+set() -> route_num, destination
+drive()
+remove_all_passengers()
+passenger_numbers()
+pick_up(Person)
+drop_off(Person)
+
+
+Person
+////
+name : String, age : Int, passengers : Array
++++
+get() -> name, age
+set() -> name, age
+
