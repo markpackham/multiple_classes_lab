@@ -3,6 +3,7 @@ require('minitest/reporters')
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 require_relative('../bus')
+require_relative('../bus_stop')
 require_relative('../person')
 
 
@@ -51,4 +52,23 @@ class BusTest < MiniTest::Test
         @bus.remove_all()
         assert_equal(0, @bus.passenger_count)
       end
+
+
+    # def test_customer_can_buy_pet()
+    #     customer = Customer.new("Jack Jarvis", 1000)
+    #     @pet_shop.sell_pet_to_customer("Sir Percy", customer)
+    #     assert_equal(1, customer.pet_count())
+    #     assert_equal(1, @pet_shop.stock_count())
+    #     assert_equal(1, @pet_shop.pets_sold)
+    #   end
+
+    def test_pick_up_from_stop()
+        bustop = BusStop.new("Gormanghast")
+        bustop.add_person_to_queue(@person)
+        bustop.add_person_to_queue(@person1)
+        bustop.add_person_to_queue(@person2)
+        @bus.pick_up_from_stop(bustop)
+        assert_equal(0,bustop.queue_number())
+        assert_equal(3,@bus.passenger_count())
+    end
 end
